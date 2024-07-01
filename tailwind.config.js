@@ -4,5 +4,8 @@ module.exports = {
 	theme: {
 		extend: {},
 	},
-	plugins: [require("@tailwindcss/typography")],
+	daisyui: {
+		themes: ["garden"],
+	},
+	plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
