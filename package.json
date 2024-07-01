@@ -1,0 +1,32 @@
+{
+	"name": "starter-reactjs-wordpress-theme",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "wp-scripts start",
+		"build": "wp-scripts build"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@prettier/plugin-php": "^0.22.2",
+		"@tailwindcss/typography": "^0.5.13",
+		"@wordpress/element": "^6.2.0",
+		"@wordpress/scripts": "^27.9.0",
+		"autoprefixer": "^10.4.19",
+		"init": "^0.1.2",
+		"npx": "^10.2.2",
+		"postcss": "^8.4.39",
+		"prettier": "^3.3.2",
+		"prettier-plugin-tailwindcss": "^0.6.5",
+		"tailwindcss": "^3.4.4"
+	},
+	"dependencies": {
+		"dompurify": "^3.1.5",
+		"framer-motion": "^11.2.12",
+		"react-router-dom": "^6.24.0",
+		"tailwind-merge": "^2.3.0"
+	}
+}
