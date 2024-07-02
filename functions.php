@@ -33,3 +33,22 @@ function enqueue_scripts()
 add_action("wp_enqueue_scripts", "enqueue_scripts");
 
 remove_action("template_redirect", "redirect_canonical");
+
+function register_widgets()
+{
+	// Register Menu Widget
+	register_sidebar([
+		"id" => "menu",
+		"name" => "Menu",
+		"show_in_rest" => true,
+	]);
+
+	// Register Footer Widget
+	register_sidebar([
+		"id" => "footer",
+		"name" => "Footer",
+		"show_in_rest" => true,
+	]);
+}
+
+add_action("widgets_init", "register_widgets");
