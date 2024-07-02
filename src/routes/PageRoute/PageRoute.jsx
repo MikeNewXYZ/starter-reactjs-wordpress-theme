@@ -33,8 +33,8 @@ export default function PageRoute() {
 
 	// Render main content if page data is successfully fetched
 	return (
-		<main className="container mx-auto">
+		<div className="container mx-auto">
 			<Content data={`<h1>${data.title.rendered}</h1>${data.content.rendered}`} />
-		</main>
+		</div>
 	);
 }

@@ -6,8 +6,6 @@ export default async function getWidgets(id) {
 
 		const data = await response.json();
 
-		console.log(data);
-
 		return {
 			success: true,
 			data,

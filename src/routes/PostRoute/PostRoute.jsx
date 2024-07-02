@@ -34,10 +34,10 @@ export default function PostRoute() {
 	}
 
 	return (
-		<main className="container">
+		<div className="container mx-auto">
 			<h1>{data.title.rendered}</h1>
 			<section dangerouslySetInnerHTML={{ __html: data.content.rendered }}></section>
 			<Comments comments={comments} getComments={getComments} />
-		</main>
+		</div>
 	);
 }
