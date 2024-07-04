@@ -16,14 +16,14 @@ function enqueue_scripts()
 
 	// Collect data from wordpress PHP to be passed onto JavaScript
 	$wpData = [
-		"baseUrl" => esc_url(home_url()), // Base URL of the site
-		"siteName" => get_bloginfo("name"), // Site name
-		"siteDescription" => get_bloginfo("description"), // Site description
-		"isPage" => is_page(), // Determines whether the query is for an existing single page
-		"isSingle" => is_single(), // Determines whether the query is for an existing single post
-		"isSingular" => is_singular(), // Determines whether the query is for an existing single post of any post type
-		"theId" => get_the_id(), // Get the Id of a given page
-		"nonce" => wp_create_nonce("wp_rest"), // Create nonce value for rest api
+		"isPage" => is_page(),
+		"isSingle" => is_single(),
+		"isSingular" => is_singular(),
+		"theId" => get_the_ID(),
+		"menuItems" => [
+			"headerMenu" => wp_get_nav_menu_items(wp_get_nav_menu_name("headerMenu")),
+			"footerMenu" => wp_get_nav_menu_items(wp_get_nav_menu_name("footerMenu")),
+		],
 	];
 
 	// Localize script to pass data from PHP to JavaScript
@@ -33,4 +33,3 @@ add_action("wp_enqueue_scripts", "enqueue_scripts");
 
 include get_template_directory() . "./menu_locations.php";
 include get_template_directory() . "./customizers.php";
-include get_template_directory() . "./custom_rest_route.php";
