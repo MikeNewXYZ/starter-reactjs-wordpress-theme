@@ -57,7 +57,7 @@ export default async function getMenuItems(menuLocation) {
 
 		return {
 			success: true,
-			dat: menuItemsTree,
+			data: menuItemsTree,
 		};
 	} catch (error) {
 		console.error(error);
