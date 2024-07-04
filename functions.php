@@ -1,5 +1,5 @@
 <?php
-// Function to enqueue scripts and styles
+// Enqueue scripts and styles
 function enqueue_scripts()
 {
 	// Enqueue the main JavaScript file
@@ -22,33 +22,20 @@ function enqueue_scripts()
 		"isPage" => is_page(), // Determines whether the query is for an existing single page
 		"isSingle" => is_single(), // Determines whether the query is for an existing single post
 		"isSingular" => is_singular(), // Determines whether the query is for an existing single post of any post type
-		"theId" => get_the_id(),
+		"theId" => get_the_id(), // Get the Id of a given page
 	];
 
 	// Localize script to pass data from PHP to JavaScript
 	wp_localize_script("main-script", "wpData", $wpData);
 }
-
-// Hook the enqueue_scripts function to the wp_enqueue_scripts action
 add_action("wp_enqueue_scripts", "enqueue_scripts");
 
-remove_action("template_redirect", "redirect_canonical");
-
-function register_widgets()
+// Register menu locations
+function register_menus()
 {
-	// Register Menu Widget
-	register_sidebar([
-		"id" => "menu",
-		"name" => "Menu",
-		"show_in_rest" => true,
-	]);
-
-	// Register Footer Widget
-	register_sidebar([
-		"id" => "footer",
-		"name" => "Footer",
-		"show_in_rest" => true,
+	register_nav_menus([
+		"headerMenu" => __("Header Menu"),
+		"footerMenu" => __("Footer Menu"),
 	]);
 }
-
-add_action("widgets_init", "register_widgets");
+add_action("init", "register_menus");

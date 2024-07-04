@@ -8,7 +8,7 @@ export default function PostRoute() {
 	useEffect(() => getData(), []);
 
 	const getData = async () => {
-		const reponse = await fetch(`${wpData.baseUrl}/wp-json/wp/v2/posts/${wpData.theId}`);
+		const reponse = await fetch(`/wp-json/wp/v2/posts/${wpData.theId}`);
 		const data = await reponse.json();
 
 		if (data.comment_status == "open") {
@@ -21,9 +21,7 @@ export default function PostRoute() {
 	};
 
 	const getComments = async (query = "&per_page=5") => {
-		const reponse = await fetch(
-			`${wpData.baseUrl}/wp-json/wp/v2/comments?post=${wpData.theId}${query}`,
-		);
+		const reponse = await fetch(`/wp-json/wp/v2/comments?post=${wpData.theId}${query}`);
 		const data = await reponse.json();
 
 		setComments(data);
