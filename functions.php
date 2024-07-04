@@ -31,47 +31,6 @@ function enqueue_scripts()
 }
 add_action("wp_enqueue_scripts", "enqueue_scripts");
 
-// Register menu locations
-function register_menus()
-{
-	register_nav_menus([
-		"headerMenu" => __("Header Menu"),
-		"footerMenu" => __("Footer Menu"),
-	]);
-}
-add_action("init", "register_menus");
-
-/* -------------------------------------------------------------------------- */
-/*                                 CUSTOMIZERS                                */
-/* -------------------------------------------------------------------------- */
-
-// Header Section
-function theme_header_customizer($wp_customize)
-{
-	$wp_customize->add_section("header_section", [
-		"title" => "Header",
-		"priority" => 160,
-	]);
-
-	// Title Text Setting
-	$wp_customize->add_setting("title_text_setting", [
-		"default" => "FooBar Blog",
-	]);
-	$wp_customize->add_control("title_text_setting", [
-		"section" => "header_section",
-		"label" => "Title",
-		"type" => "text",
-	]);
-
-	// Logo Image Setting
-	$wp_customize->add_setting("logo_image_setting");
-	$wp_customize->add_control(
-		new WP_Customize_Image_Control($wp_customize, "logo_image_setting", [
-			"section" => "header_section",
-			"label" => "Logo",
-		])
-	);
-}
-add_action("customize_register", "theme_header_customizer");
-
+include get_template_directory() . "./menu_locations.php";
+include get_template_directory() . "./customizers.php";
 include get_template_directory() . "./custom_rest_route.php";
