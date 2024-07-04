@@ -1,11 +1,8 @@
 async function getMenuId(menuLocation) {
 	try {
-		const response = await fetch(`/wp-json/wp/v2/menu-locations/${menuLocation}`, {
+		const response = await fetch("/wp-json/custom/menu-locations", {
 			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-				"X-WP-Nonce": wpData.nonce,
-			},
+			headers: { "Content-Type": "application/json" },
 		});
 
 		if (!response.ok) throw new Error(response.statusText);
@@ -14,7 +11,7 @@ async function getMenuId(menuLocation) {
 
 		return {
 			success: true,
-			data: data.menu,
+			data: data[menuLocation],
 		};
 	} catch (error) {
 		console.error(error);
@@ -29,8 +26,8 @@ async function getMenuId(menuLocation) {
 // Converts a flat array of objects into an array tree
 function buildTree(menuItems, parent = 0) {
 	const newMenuItems = menuItems
-		.filter((menuItem) => menuItem.parent === parent)
-		.map((menuItem) => ({ ...menuItem, children: buildTree(menuItems, menuItem.id) }));
+		.filter((menuItem) => parseInt(menuItem.menu_item_parent) === parent)
+		.map((menuItem) => ({ ...menuItem, children: buildTree(menuItems, menuItem.ID) }));
 
 	return newMenuItems;
 }
@@ -41,7 +38,7 @@ export default async function getMenuItems(menuLocation) {
 
 		if (!menuId.success) throw new Error(menuId.error);
 
-		const response = await fetch(`/wp-json/wp/v2/menu-items?menus=${menuId.data}`, {
+		const response = await fetch(`/wp-json/custom/menu/${menuId.data}`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",

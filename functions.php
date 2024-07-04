@@ -73,3 +73,5 @@ function theme_header_customizer($wp_customize)
 	);
 }
 add_action("customize_register", "theme_header_customizer");
+
+include get_template_directory() . "./custom_rest_route.php";
