@@ -23,6 +23,7 @@ function enqueue_scripts()
 		"isSingle" => is_single(), // Determines whether the query is for an existing single post
 		"isSingular" => is_singular(), // Determines whether the query is for an existing single post of any post type
 		"theId" => get_the_id(), // Get the Id of a given page
+		"nonce" => wp_create_nonce("wp_rest"), // Create nonce value for rest api
 	];
 
 	// Localize script to pass data from PHP to JavaScript
