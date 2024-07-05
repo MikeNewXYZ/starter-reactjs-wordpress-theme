@@ -8,7 +8,7 @@ export default function Content({ className, data }) {
 
 	return (
 		<article
-			class={twMerge("prose mx-auto px-2 lg:prose-xl", className)}
+			class={twMerge("prose mx-auto overflow-x-hidden px-2 lg:prose-xl", className)}
 			dangerouslySetInnerHTML={sanitizedData()}
 		></article>
 	);
