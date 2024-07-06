@@ -5,7 +5,7 @@ export default function MainContainer({ header, footer, children }) {
 		<div className={styles["page-container"]}>
 			{header}
 
-			<main className={styles["main-container"]}>{children}</main>
+			<main className={`${styles["main-container"]} container`}>{children}</main>
 
 			{footer}
 		</div>
