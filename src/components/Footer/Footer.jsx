@@ -4,7 +4,7 @@ export default function Footer() {
 	const menuItems = buildTree(wpData.menuItems.footerMenu, "menu_item_parent", "ID");
 
 	return (
-		<footer>
+		<footer className="container">
 			<hr />
 			<aside>
 				<nav>
