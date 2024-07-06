@@ -1,3 +1,5 @@
+// Takes a flat array and builds an array tree
+// This is useful for menu items from wordpress which are flat by default
 export default function buildTree(items, parentIdKey, IdKey) {
 	if (!items) return;
 
