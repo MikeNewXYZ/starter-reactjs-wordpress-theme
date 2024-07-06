@@ -1,6 +1,7 @@
 import { createRoot } from "@wordpress/element";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainContainer from "./components/MainContainer/MainContainer";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import IndexRoute from "./routes/IndexRoute/IndexRoute";
 import PageRoute from "./routes/PageRoute/PageRoute";
@@ -12,7 +13,7 @@ const isPage = wpData.isPage === "1";
 const postsSlug = wpData.pageData.posts.post_name;
 
 createRoot(document.getElementById("app")).render(
-	<MainContainer header={<h1>header</h1>} footer={<Footer />}>
+	<MainContainer header={<Header />} footer={<Footer />}>
 		<BrowserRouter>
 			<Routes>
 				<Route index Component={IndexRoute} />
