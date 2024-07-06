@@ -9,5 +9,5 @@
 	"jsxBracketSameLine": false,
 	"arrowParens": "always",
 	"requirePragma": false,
-	"plugins": ["@prettier/plugin-php", "prettier-plugin-tailwindcss"]
+	"plugins": ["@prettier/plugin-php"]
 }
