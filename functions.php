@@ -17,8 +17,8 @@ function enqueue_scripts()
 }
 add_action("wp_enqueue_scripts", "enqueue_scripts");
 
-include get_template_directory() . "./php_functions/pass_wp_data_to_js.php";
-include get_template_directory() . "./php_functions/menu_locations.php";
-include get_template_directory() . "./php_functions/customizers.php";
+include get_template_directory() . "/php_functions/pass_wp_data_to_js.php";
+include get_template_directory() . "/php_functions/menu_locations.php";
+include get_template_directory() . "/php_functions/customizers.php";
 
 ?>
