@@ -8,7 +8,7 @@ import PostsRoute from "./routes/PostsRoute/PostsRoute";
 import "./main.css";
 
 const isPage = wpData.isPage === "1";
-const postsSlug = wpData.pageData.postsPageData.post_name;
+const postsSlug = wpData.pageData.posts.post_name;
 
 createRoot(document.getElementById("app")).render(
 	<MainContainer header={<h1>header</h1>} footer={<h1>footer</h1>}>
