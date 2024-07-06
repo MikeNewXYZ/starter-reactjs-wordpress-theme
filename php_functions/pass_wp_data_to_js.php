@@ -10,9 +10,12 @@ function pass_wp_data_to_js()
 		"isSingle" => is_single(),
 		"isSingular" => is_singular(),
 
-		// Get the ID and full post object of the current post/page
-		"theId" => get_the_ID(),
-		"postData" => get_post(get_the_ID()),
+		// Get page data for current and specific pages
+		"pageData" => [
+			"currentPageData" => get_post(get_the_ID()),
+			"frontPageData" => get_post(get_option("page_on_front")),
+			"postsPageData" => get_post(get_option("page_for_posts")),
+		],
 
 		// Retrieve navigation menu items from menu locations
 		"menuItems" => [
