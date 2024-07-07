@@ -20,6 +20,9 @@ function pass_wp_data_to_js()
 		"isSingle" => is_single(),
 		"isSingular" => is_singular(),
 
+		// Total number of published posts
+		"postsCount" => wp_count_posts()->publish,
+
 		// Page data for current and specific pages
 		"pageData" => [
 			"current" => $currentPageData,
